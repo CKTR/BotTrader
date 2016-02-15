@@ -1,0 +1,21 @@
+# winter2016-assignment1
+
+## Authors: 
+
+- Cody Lin, A00933265
+- Kelly Liu, A00928089
+- Rin Zhu, A00887550
+- Tanja Tong, A00907319
+
+## Work Distribution:
+- Cody:Player and Assemble controllers and Player view
+- Kelly: Base controller, master template, login with session, commenting
+- Rin: Game and Player views, Game contoller, models, CSS
+- Tanja: CSS
+
+## 2016-02-14:
+- Completed assignment1. Problems we struggled the most with:
+* Understanding Codeigniter framework
+* Fully understanding expectations and requirement definitions
+* Spent too much time trying to find a template 
+* Login with session variables and assesing the stored session

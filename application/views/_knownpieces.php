@@ -1,4 +1,4 @@
-<h2>known pieces<h2>
+        
             <table class="table">
                 {collect}
                 <tr>
