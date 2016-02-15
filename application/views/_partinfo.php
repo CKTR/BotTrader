@@ -1,4 +1,4 @@
-<h2>Current Parts Information<h2>
+
                 <table class="table">
                 <tr>
                     <th>Total Packs Opened</th>

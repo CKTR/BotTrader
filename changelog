@@ -1,9 +1,10 @@
 This is the change log for assignment 1, initial entry, Last entry First.
 
+2/11/2016 10:58 Tanja Tong - changed CSS for the project, added readme
 2/14/2016 06:12 Cody Lin - add assemble functionality
 2/14/2016 17:57 Kelly Liu - added assemble views and MY_model
 2/14/2016 17:53 Lin Zhu - added game functions and views
 2/14/2016 17:41 Cody Lin - added player function and views 
 2/14/2016 17:14 Lin Zhu - added Access model, which retrieves data from db functions vary, setup for paging and other values to be get from table
 2/14/2016 17:08 Kelly Liu - added login function and menubar view
-2/14/2016 Lin Zhu
+2/14/2016 16:37 Setup folder and settings for the project
