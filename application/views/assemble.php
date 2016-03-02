@@ -1,4 +1,4 @@
-<div id="left">
+<div id="partSelect">
     <form method="post">
         <table class="table">
             <tr><td>{toplist}</td></tr>
@@ -14,11 +14,11 @@
         </tr>
         </table>
     </form>
-    <div/>
-    <div id="right">
+    </div>
+    <div id="partCon">
         {assembleparts}
-        <div/>
-        <button>Assemble!<button/>
+        <button>Assemble!</button>
+    </div>
 
 
 
