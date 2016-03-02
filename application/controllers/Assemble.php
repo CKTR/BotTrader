@@ -43,7 +43,7 @@ class Assemble extends Application {
         $this->data['tops'] = $toppiece;
         $this->data['mids'] = $midpiece;
         $this->data['bots'] = $botpiece;
-               $this->data['toplist'] = $this->parser->parse('_toplist', $this->data, TRUE);
+        $this->data['toplist'] = $this->parser->parse('_toplist', $this->data, TRUE);
         $this->data['midlist'] = $this->parser->parse('_midlist', $this->data, TRUE);
         $this->data['botlist'] = $this->parser->parse('_botlist', $this->data, TRUE);
         if ($this->input->post('toppart')) {
