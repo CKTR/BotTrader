@@ -53,10 +53,20 @@
         $this->data['collect'] = $partlist;
         
         
+        $this->data['round'] = $this->state->get_round();
+        $this->data['state'] = $this->state->get_state();
+        $this->data['countdown'] = $this->state->get_countdown();
+        $this->data['current'] = $this->state->get_current();
+        $this->data['duration'] = $this->state->get_duration();
+        $this->data['upcoming'] = $this->state->get_upcoming();
+        $this->data['alarm'] = $this->state->get_alarm();
+        $this->data['now'] = $this->state->get_now();
+        
         $this->data['currparts'] = $this->parser->parse('_partinfo', $this->data, TRUE);
         $this->data['knownpieces'] = $this->parser->parse('_knownpieces', $this->data, TRUE);
         $this->data['equitylist'] = $this->parser->parse('_equitylist', $this->data, TRUE);
-//        $this->data['debug'] = print_r($dataTable, TRUE);
+        $this->data['currstats']  = $this->parser->parse('_serverstatus', $this->data,TRUE);
+//        $this->data['debug'] = print_r($this->state->get_state_data(), TRUE);
         $this->render();
     }
 

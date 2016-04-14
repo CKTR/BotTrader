@@ -7,7 +7,6 @@
                 </tr>
                 {playerlist}
                 <tr>
-                    <td><img sec="assets/images/logo.png" alt="avatar" height="30" width="30"></td>
                     <td><a href="/welcome/{name}">{name}<a/></td>
                     <td>{peanut}</td>
                     <td>{equity}</td>
