@@ -27,11 +27,16 @@ class Gamedata extends Application {
         //echo $this->test->get_bot_value('11');
         //print_r($this->test->get_certificates_data());
         //print_r($this->test->get_transactions_data());
-        print_r($this->test->get_player_recent_trans('billy', 3));
+        //print_r($this->test->get_player_recent_trans('billy', 3));
         //print_r($this->test->get_series_data());
         //echo $this->state->get_round();
         //echo $this->state->get_round();
-
+        
+        $this->register->_register();
+        //echo $this->register->get_token();
+        //$this->register->buy();
+        
+        
               $this->render();
         
         
