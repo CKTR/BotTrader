@@ -26,15 +26,36 @@ class Test extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $series = 'http://botcards.jlparry.com/data/series';
-        $certificates = 'http://botcards.jlparry.com/data/certificates';
-        $transactions = 'http://botcards.jlparry.com/data/transactions';
-        $this->series_data = $this->_retrieve_data($series);
-        $this->certificates_data = $this->_retrieve_data($certificates);
-        $this->transactions_data = $this->_retrieve_data($transactions);
+        $this->series = 'http://botcards.jlparry.com/data/series';
+        $this->certificates = 'http://botcards.jlparry.com/data/certificates';
+        $this->transactions = 'http://botcards.jlparry.com/data/transactions';
+        $this->series_data = $this->_retrieve_data($this->series);
+        $this->certificates_data = $this->_retrieve_data($this->certificates);
+        $this->transactions_data = $this->_retrieve_data($this->transactions);
     }
     function get_series_data(){
         return $this->series_data;
+        
+    }
+    function get_certificates_data(){
+        return $this->certificates_data;
+        
+    }
+    function get_transactions_data(){
+        return $this->transactions_data;
+        
+    }
+    function get_player_recent_trans($player, $num){
+        $_arr;
+        $player_trans;
+        foreach ($this->transactions_data as $t) {
+            if($t['player'] == $player)
+            $player_trans[] = $t;
+            
+        }
+        ksort($player_trans);
+        $_arr = array_slice($player_trans,0,$num);
+        return $_arr;
         
     }
     //get functions for play
