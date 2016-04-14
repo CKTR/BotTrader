@@ -38,24 +38,80 @@ class Test extends CI_Model {
         
     }
     //get functions for play
-    function get_all_bot_names($array) {
+    function get_all_bot_names() {
         $_arr;
-        foreach ($array as $t) {
+        foreach ($this->series_data as $t) {
 
             $_arr[] = $t['description'];
         }
         return $_arr;
     }
 
-    function get_all_bot_codes($array) {
+    function get_all_bot_codes() {
         $_arr;
-        foreach ($array as $t) {
+        foreach ($this->series_data as $t) {
 
             $_arr[] = $t['code'];
         }
         return $_arr;
     }
+    
+    function get_all_frequency() {
+        $_arr;
+        foreach ($this->series_data as $t) {
 
+            $_arr[] = $t['frequency'];
+        }
+        return $_arr;
+    }
+function get_all_value() {
+        $_arr;
+        foreach ($this->series_data as $t) {
+
+            $_arr[] = $t['value'];
+        }
+        return $_arr;
+    }
+    function get_bot_by_code($code){
+        $_arr;
+         foreach ($this->series_data as $t) {
+            if($t['code'] == $code){
+            $_arr = $t;
+            }
+        }
+        return $_arr;
+        
+    }
+    function get_bot_by_name($name){
+        $_arr;
+         foreach ($this->series_data as $t) {
+            if($t['name'] == $name){
+            $_arr = $t;
+            }
+        }
+        return $_arr;
+        
+    }
+    function get_bot_value($code){
+        $value;
+         foreach ($this->series_data as $t) {
+            if($t['code'] == $code){
+            $value = $t['value'];
+            }
+        }
+        return $value;
+        
+    }
+    function get_bot_frequency($code){
+        $value;
+         foreach ($this->series_data as $t) {
+            if($t['code'] == $code){
+            $value = $t['frequency'];
+            }
+        }
+        return $value;
+        
+    }
     /*
       function get_bot_by_code($code){
       $_arr;

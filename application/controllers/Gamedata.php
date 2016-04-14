@@ -22,8 +22,11 @@ class Gamedata extends Application {
     function index() {
         $this->data['title'] = 'GameData';
         $this->data['pagebody'] = 'gamedata';
-        $this->data['info'] = print_r($this->test->get_series_data());
-        echo $this->state->get_round();
+        //$this->data['info'] = print_r($this->test->get_all_bot_names());
+        print_r($this->test->get_bot_by_code('11'));
+        echo $this->test->get_bot_value('11');
+        //print_r($this->test->get_series_data());
+        //echo $this->state->get_round();
 
               $this->render();
         
