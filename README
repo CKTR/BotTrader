@@ -7,6 +7,22 @@
 - Rin Zhu, A00887550
 - Tanja Tong, A00907319
 
+***********
+Conventions
+***********
+
+Allman style  
+
+tab indentation  
+
+ucfirst (Upper case first) for classes and files  
+
+lowercase for name elsewhere  
+
+words separated by underscore  
+
+underscore first for internal items  
+
 ## Work Distribution:
 - Cody:Player and Assemble controllers and Player view
 - Kelly: Base controller, master template, login with session, commenting
