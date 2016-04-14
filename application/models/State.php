@@ -46,6 +46,10 @@ class State extends CI_Model {
     }
    
 
+    function get_state_data(){
+        
+        return $this->state_data;
+    }
 
 
 function get_data($url) {
