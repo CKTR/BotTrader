@@ -13,7 +13,7 @@
  * Each such model is bound to a specific database table, using a designated
  * key field as the associative array index internally.
  */
-class Data extends CI_Model {
+class Info extends CI_Model {
 
     protected $series;
     protected $certificates;

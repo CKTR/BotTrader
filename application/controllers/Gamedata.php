@@ -32,9 +32,9 @@ class Gamedata extends Application {
         //echo $this->state->get_round();
         //echo $this->state->get_round();
         
-        $this->register->_register();
+        //$this->register->_register();
         //echo $this->register->get_token();
-        //$this->register->buy();
+        $this->register->buy();
         
         
               $this->render();
