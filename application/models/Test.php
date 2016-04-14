@@ -122,6 +122,6 @@ class Test extends CI_Model {
 
 }
 
-$autoload['model'] = array('gamedata');
+$autoload['model'] = array('test');
 
 

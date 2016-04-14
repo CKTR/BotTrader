@@ -23,6 +23,7 @@ class Gamedata extends Application {
         $this->data['title'] = 'GameData';
         $this->data['pagebody'] = 'gamedata';
         $this->data['info'] = print_r($this->test->get_series_data());
+        echo $this->state->get_round();
 
               $this->render();
         
