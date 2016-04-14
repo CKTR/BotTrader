@@ -13,30 +13,62 @@
  * Each such model is bound to a specific database table, using a designated
  * key field as the associative array index internally.
  */
-class Test extends CI_Model {
+class Register extends CI_Model {
 
     protected $register;
     protected $token;
+    protected $buy_receipt;
+    protected $team;
+    protected $name;
+    protected $password;
+    protected $player;
 
     // Constructor
 
     function __construct() {
         parent::__construct();
         $this->register = 'http://botcards.jlparry.com/register';
+        $this->team = 'A09';
+        $this->name = 'Kobe';
+        $this->password = 'tuesday';
+        $this->player = 'hahaha';
     }
 
     function _register() {
-        $_POST['team'] = 'A09';
-        $_POST['name'] = 'Kobe';
-        $_POST['password'] = 'tuesday';
+        $_POST['team'] = $this->team;
+        $_POST['name'] = $this->name;
+        $_POST['password'] = $this->password;
 
         $fields = array(
             'team' => urlencode($_POST['team']),
             'name' => urlencode($_POST['name']),
             'password' => urlencode($_POST['password'])
         );
+        $results = $this->send($fields);
+        $this->token = (string) $results->token;
+        
+    }
 
-        //url-ify the data for the POST
+    // get token function 
+    function get_token() {
+        return $this->token;
+    }
+    function buy(){
+         $_POST['team'] = $this->team;
+        $_POST['token'] = $this->token;
+        $_POST['player'] = $this->player;
+        $fields = array(
+            'team' => urlencode($_POST['team']),
+            'token' => urlencode($_POST['name']),
+            'player' => urlencode($_POST['player'])
+        );
+        $results = $this->send($fields);
+        echo $results;
+    }
+    
+    function send($fields){
+        $fields_string='';
+//url-ify the data for the POST
         foreach ($fields as $key => $value) {
             $fields_string .= $key . '=' . $value . '&';
         }
@@ -46,20 +78,16 @@ class Test extends CI_Model {
         $ch = curl_init();
 
         //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $this->register);
         curl_setopt($ch, CURLOPT_POST, count($fields));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 
         //execute post
-        $this->token = curl_exec($ch);
+        $result = curl_exec($ch);
 
         //close connection
         curl_close($ch);
-    }
-
-    // get token function 
-    function get_token() {
-        return $this->token;
+        return $result;
     }
 
 }
