@@ -16,6 +16,7 @@
 class Register extends CI_Model {
 
     protected $register;
+    protected $buy;
     protected $token;
     protected $buy_receipt;
     protected $team;
@@ -27,6 +28,7 @@ class Register extends CI_Model {
 
     function __construct() {
         parent::__construct();
+        $this->buy='http://botcards.jlparry.com/buy';
         $this->register = 'http://botcards.jlparry.com/register';
         $this->team = 'A09';
         $this->name = 'Kobe';
@@ -35,59 +37,41 @@ class Register extends CI_Model {
     }
 
     function _register() {
-        $_POST['team'] = $this->team;
-        $_POST['name'] = $this->name;
-        $_POST['password'] = $this->password;
 
         $fields = array(
-            'team' => urlencode($_POST['team']),
-            'name' => urlencode($_POST['name']),
-            'password' => urlencode($_POST['password'])
+            'team' => $this->team,
+            'name' => $this->name,
+            'password' => $this->password
         );
+        $result = $this->curl->simple_post($this->register, $fields);
+        echo $result;
+        $this->token = (string) $result->token;
+        /*
         $results = $this->send($fields);
         $this->token = (string) $results->token;
-        
+         * */
+         
     }
 
     // get token function 
     function get_token() {
         return $this->token;
     }
-    function buy(){
-         $_POST['team'] = $this->team;
-        $_POST['token'] = $this->token;
-        $_POST['player'] = $this->player;
+
+    function buy() {
         $fields = array(
-            'team' => urlencode($_POST['team']),
-            'token' => urlencode($_POST['name']),
-            'player' => urlencode($_POST['player'])
+            'team' => $this->team,
+            //'token' => 'af17db2c9717f8520a8859cc06df40f1',
+            'token' => $this->token,
+            'player' => $this->player
         );
-        $results = $this->send($fields);
-        echo $results;
+        $result = $this->curl->simple_post($this->buy, $fields);
+        $this->buy_receipt = $result;
+        echo $result;
+        /*$results = $this->send($fields);
+        echo $results;*/
     }
-    
-    function send($fields){
-        $fields_string='';
-//url-ify the data for the POST
-        foreach ($fields as $key => $value) {
-            $fields_string .= $key . '=' . $value . '&';
-        }
-        rtrim($fields_string, '&');
 
-        //open connection
-        $ch = curl_init();
 
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $this->register);
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-
-        //execute post
-        $result = curl_exec($ch);
-
-        //close connection
-        curl_close($ch);
-        return $result;
-    }
 
 }
