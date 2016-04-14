@@ -199,6 +199,5 @@ class Data extends CI_Model {
 
 }
 
-$autoload['model'] = array('test');
 
 
