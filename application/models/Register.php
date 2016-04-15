@@ -61,8 +61,8 @@ class Register extends CI_Model {
     function buy() {
         $fields = array(
             'team' => $this->team,
-            //'token' => 'af17db2c9717f8520a8859cc06df40f1',
-            'token' => $this->token,
+            'token' => 'af17db2c9717f8520a8859cc06df40f1',
+            //'token' => $this->token,
             'player' => $this->player
         );
         $result = $this->curl->simple_post($this->buy, $fields);
