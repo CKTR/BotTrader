@@ -1,5 +1,5 @@
 <div id="left">
-    <table>
+    <table class="table">
         <tr><td>{currstats}</td></tr>
         <tr><td>{currparts}</td></tr>
         <tr><td>{knownpieces}</td></tr>
@@ -8,7 +8,6 @@
 
 <div id="right">
         {currplayer}
+        {listplayer}
         {equitylist}
 </div>
-
-{debug}
