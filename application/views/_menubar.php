@@ -15,10 +15,23 @@
 <div id="loginbox">   
     <div id="welcomemsg">{welcome_txt}</div>
     <div id="logintext">{login_msg}</div>
-    <form name="loginform" id="loginform" action= "" method="POST">
+    <table>
+        <tr>
+            <th>Login</th>
+            <th>Register</th>
+        </tr>
+        <tr>
+            <td>
+                <form name="loginform" id="loginform" action= "" method="POST">
         <input type="text" name="username" placeholder="Username" >
         <input type="text" name="action" value="{login_action}" style="display:none">
         <input type="submit" value="{login_submit_txt}">
-
-    </form>    
+            </form>    
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+    
 </div>
