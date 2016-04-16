@@ -1,4 +1,4 @@
-F<?php
+<?php
 
 /**
  * core/MY_Model.php
