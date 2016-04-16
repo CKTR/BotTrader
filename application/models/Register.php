@@ -13,7 +13,7 @@
  * Each such model is bound to a specific database table, using a designated
  * key field as the associative array index internally.
  */
-class Register extends CI_Model {
+class Register extends MY_Model {
 
     protected $register;
     protected $buy;
@@ -23,12 +23,14 @@ class Register extends CI_Model {
     protected $name;
     protected $password;
     protected $player;
-
+    protected $sell_receipt;
+    protected $sell;
     // Constructor
 
     function __construct() {
-        parent::__construct();
+        parent::__construct('agent', 'name');
         $this->buy='http://botcards.jlparry.com/buy';
+        $this->sell='http://botcards.jlparry.com/sell';
         $this->register = 'http://botcards.jlparry.com/register';
         $this->team = 'A09';
         $this->name = 'Kobe';
@@ -37,19 +39,28 @@ class Register extends CI_Model {
     }
 
     function _register() {
-
+        
         $fields = array(
             'team' => $this->team,
             'name' => $this->name,
             'password' => $this->password
         );
         $result = $this->curl->simple_post($this->register, $fields);
-        echo $result;
-        $this->token = (string) $result->token;
-        /*
-        $results = $this->send($fields);
-        $this->token = (string) $results->token;
-         * */
+        $xml = simplexml_load_string($result);
+        $this->token = (string) $xml->token;
+        //print_r($xml);
+        //echo (string) $xml->token;
+        if($this->get($this->name)){
+        $this->delete($this->name);
+        $obj = $this->create();
+        $obj->team = $this->team;
+        $obj->name = $this->name;
+        $obj->password = $this->password;
+        $obj->token = (string) $xml->token;
+        print_r($obj);
+        $this->add($obj);
+        }
+        
          
     }
 
@@ -59,19 +70,46 @@ class Register extends CI_Model {
     }
 
     function buy() {
+        //echo $this->name;
+        //$this->get($this->name)->token;
         $fields = array(
             'team' => $this->team,
-            'token' => 'af17db2c9717f8520a8859cc06df40f1',
-            //'token' => $this->token,
+            'token' => $this->get($this->name)->token,
             'player' => $this->player
         );
         $result = $this->curl->simple_post($this->buy, $fields);
-        $this->buy_receipt = $result;
-        echo $result;
-        /*$results = $this->send($fields);
-        echo $results;*/
+
+        $xml = simplexml_load_string($result);
+        print_r($xml);
+        $this->buy_receipt = $xml;
+                foreach($xml as $card){
+                    echo '<br />';
+            echo $card->piece;
+            echo ' ';
+            echo $card->token;
+            
+        }
+        
+
     }
 
+    function sell($top='', $mid='', $bot='') {
+        //echo $this->name;
+        //$this->get($this->name)->token;
+        $fields = array(
+            'team' => $this->team,
+            'token' => $this->get($this->name)->token,
+            'player' => $this->player,
+            'top' =>  $top,
+            'middle' => $mid,
+            'bottom' => $bot
+        );
+        $result = $this->curl->simple_post($this->sell, $fields);
 
+        $xml = simplexml_load_string($result);
+        $this->sell_receipt = $xml;
+
+    }
+    
 
 }
