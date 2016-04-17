@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Our homepage.
+ * Gamepage.
  * 
- * Present a summary of the completed orders.
- * 
- * controllers/welcome.php
+ * controllers/game.php
  *
  * ------------------------------------------------------------------------
  */

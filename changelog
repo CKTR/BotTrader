@@ -1,3 +1,18 @@
+This is the change log for assignment 2, initial entry, Last entry First.
+
+4/18/2016 15:05 Tanja Tong - add comment, changelog and readme.
+4/18/2016 13:42 Lin Zhu - finished merge
+4/18/2016 12:17 Lin Zhu - adding dashboard parts, display current player info and game info
+4/16/2016 15:28 Cody Lin - edit players functionality. Shows confusing error notice
+4/16/2016 13:33 Cody Lin - Register and Buy complete, connected to database.
+4/14/2016 20:07 Lin Zhu - Merge upstream/registration into statusDisplay
+4/14/2016 19:27 Cody Lin - rename Data to Info 
+4/14/2016 19:21 Cody Lin - Merge origin/registration into Buy
+4/14/2016 17:58 Lin Zhu - Merge upstream/registration into statusDisplay 
+4/14/2016 17:35 Kelly Liu - Fixed naming issues in registration model
+4/14/2016 15:07 Lin Zhu - modified and added status of game
+4/14/2016 14:21 Cody Lin - get game state is ready check Gamedata controller for how to use
+
 This is the change log for assignment 1, initial entry, Last entry First.
 
 2/11/2016 11:03 Lin Zhu - due to a lot of the errors for pushing in the repository, as well as trial templates that was used and abandoned, 
