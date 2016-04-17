@@ -22,19 +22,12 @@ class Gamedata extends Application {
     function index() {
         $this->data['title'] = 'GameData';
         $this->data['pagebody'] = 'gamedata';
-        //$this->data['info'] = print_r($this->test->get_all_bot_names());
-        //print_r($this->test->get_bot_by_code('11'));
-        //echo $this->test->get_bot_value('11');
-        //print_r($this->test->get_certificates_data());
-        //print_r($this->test->get_transactions_data());
-        //print_r($this->test->get_player_recent_trans('billy', 3));
-        //print_r($this->test->get_series_data());
-        //echo $this->state->get_round();
-        //echo $this->state->get_round();
+
         
-        //$this->register->_register();
-        //echo $this->register->get_token();
-        $this->register->buy();
+    $this->register->_register();
+
+       $this->register->buy();
+        //$this->register->sell('115d6', '14cf9', '12293');
         
         
               $this->render();
