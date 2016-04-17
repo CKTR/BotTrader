@@ -23,7 +23,7 @@ class Gamedata extends Application {
         $this->data['title'] = 'GameData';
         $this->data['pagebody'] = 'gamedata';
 
-        
+    // loop to test the ability to buy & sell cards and populate data    
     $this->register->_register();
 
         //$this->register->sell('115d6', '14cf9', '12293');
