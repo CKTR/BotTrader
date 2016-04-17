@@ -22,7 +22,8 @@ class Game extends Application {
     function index() {
         $this->data['title'] = 'Game Stats';
         $this->data['pagebody'] = 'game';
-
+        
+        //old player data
         $dataTable = $this->access->getplayerdatatable();
         $trans = array();
         foreach ($dataTable as $d) {
