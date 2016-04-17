@@ -7,7 +7,11 @@
 </div>
 
 <div id="right">
-        {currplayer}
+        
         {listplayer}
+        <br />
+        {currplayer}
         {equitylist}
 </div>
+
+{debug}

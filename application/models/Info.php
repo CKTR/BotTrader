@@ -57,6 +57,58 @@ class Info extends CI_Model {
         $_arr = array_slice($player_trans, 0, $num);
         return $_arr;
     }
+    
+    function get_player_trans($player){
+        $_arr;
+        foreach ($this->transactions_data as $t) {
+            if ($t['player'] == $player)
+                $_arr[] = $t;
+        }
+        return $_arr;
+    }
+    
+    function get_player_equity($player){
+        $_count = 100;
+        foreach ($this->transactions_data as $t) {
+            if($t['player'] == $player && $t['trans'] == 'sell'){
+                //add value of bot sold
+                $_count += $this->get_bot_value($t['series']);
+                //subtract card value
+                $_count -= 3; 
+            }               
+        }
+        return $_count;
+    }
+    
+    function count_bot_sold($code){
+        $_count = 0;
+        foreach ($this->transactions_data as $t) {
+            if($t['series'] == $code && $t['trans'] == 'sell'){
+                $_count ++;
+            }
+        }
+        return $_count;
+    }
+    
+    function get_pack_opened(){
+        $_count = 0;
+        foreach($this->transactions_data as $t){
+            if($t['trans'] == 'buy'){
+                $_count ++;
+            }
+        }
+        return $_count;
+    }
+    
+    function get_pack_sold(){
+        $_count = 0;
+        foreach($this->transactions_data as $t){
+            if($t['trans'] == 'sell'){
+                $_count ++;
+            }
+        }
+        return $_count;
+    }
 
     //get functions for play
     function get_all_bot_names() {

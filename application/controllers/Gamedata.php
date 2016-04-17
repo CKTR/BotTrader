@@ -26,9 +26,10 @@ class Gamedata extends Application {
         
     $this->register->_register();
 
-       $this->register->buy();
         //$this->register->sell('115d6', '14cf9', '12293');
-        
+        for($i=0; $i < 5;$i++ ){
+            $this->register->buy();
+        }
         
               $this->render();
         
