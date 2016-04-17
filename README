@@ -1,3 +1,24 @@
+# winter2016-assignment2
+
+## Authors: 
+
+- Cody Lin, A00933265
+- Kelly Liu, A00928089
+- Rin Zhu, A00887550
+- Tanja Tong, A00907319
+
+***********
+Conventions
+***********
+
+Gamedata, use to generate data for dashboard player 
+Merge upstream/registration into statusDisplay
+Register and Buy complete, connected to database.
+adding dashboard parts, display current player info and game info
+Fixed naming issues in registration model
+
+
+
 # winter2016-assignment1
 
 ## Authors: 
@@ -6,6 +27,22 @@
 - Kelly Liu, A00928089
 - Rin Zhu, A00887550
 - Tanja Tong, A00907319
+
+***********
+Conventions
+***********
+
+Allman style  
+
+tab indentation  
+
+ucfirst (Upper case first) for classes and files  
+
+lowercase for name elsewhere  
+
+words separated by underscore  
+
+underscore first for internal items  
 
 ## Work Distribution:
 - Cody:Player and Assemble controllers and Player view

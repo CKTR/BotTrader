@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Our homepage.
+ * Assemble page.
  * 
- * Present a summary of the completed orders.
- * 
- * controllers/welcome.php
+ * controllers/assemble.php
  *
  * ------------------------------------------------------------------------
  */
